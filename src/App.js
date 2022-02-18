@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Navbar from "./components/Navigation/navbar";
+import Counters from './components/counters';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    totalCounters: 0
+  }
+  // data1 = {
+  //   totalVal: 10
+  // }
+  render() { 
+    return (
+      <React.Fragment>
+        <Navbar totalCounters={this.state.totalCounters}/>
+        <main className='container'>
+          <Counters onUpdateCounters={this.handleUpdate}/>
+        </main>
+     </React.Fragment>
+    );
+  };
+
+  handleUpdate = (count) => {
+    this.setState({
+      totalCounters: count
+    })
+  }
 }
-
+ 
 export default App;
