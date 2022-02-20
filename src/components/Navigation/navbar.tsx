@@ -1,11 +1,21 @@
-import React, { Component } from "react";
-const Navbar = ({ totalCounters }) => {
+import React from "react";
+import paper from "../../assets/paper.png";
+import rock from "../../assets/rock.png";
+import scissor from "../../assets/scissor.png";
+import { TotalCounters } from "../../data-models/rps-models";
+
+const Navbar = ({ name }: TotalCounters) => {
   // object destructuring props -> { totalCounters }
   return (
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand m-2" href="#/">
-        Rock-Paper-Scissors{" "}
-        <span className="badge bg-primary m-2">{totalCounters}</span>
+        Rock-Paper-Scissors <img src={rock} alt="Rock" width="50" height="50" />
+        <img src={paper} alt="Paper" width="50" height="50" />
+        <img src={scissor} alt="Scissor" width="50" height="50" />
+        {/* <span className="badge bg-primary m-2">{totalCounters}</span> */}
+      </a>
+      <a className="navbar-brand" href="#/">
+        <span>{"Welcome " + name}</span>
       </a>
     </nav>
   );

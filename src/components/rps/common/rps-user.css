@@ -1,0 +1,6 @@
+#parent {
+  display: flex;
+}
+#users {
+  flex: 1;
+}

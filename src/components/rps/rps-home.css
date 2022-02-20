@@ -1,0 +1,11 @@
+.vl {
+  border-left: 1px solid rgb(200, 223, 255);
+  height: 500px;
+}
+#parent {
+  display: flex;
+}
+
+#userComputer {
+  flex: 1;
+}
