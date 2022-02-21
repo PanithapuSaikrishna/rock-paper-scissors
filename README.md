@@ -12,12 +12,17 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 # How to play the Game ?
-1.
+1. The UI consists of two layouts. Left side pane is for Player vs Computer and Right side pane is for Computer vs Computer.
+2. On the left pane, there are two sections. One section is Player and other one is for computer.
+3. On player side there are three buttons(Rock, Paper and Scissors) which user can interact and select the desired option.
+4. Once clicked the game will start and display the user selected option and computer will automatically show it's image.
+5. If player/computer wins the point or if there is a tie then it will show the popover with appropriate message.
+6. A point will be allocated to player by filling one out of three blue color circles at the top of user icon and simillarly for Computer.
+7. If player/computer reaches 3 points then game is over and a popup will be displayed with appropriate message.
+8. For computer vs computer option, the game is almost similar to player vs computer but the only difference is it consists of only one button which is play. Upon clicking the button, code will automatically allocate point to computer one or computer two.
+9. There is Restart Game button, on aither sides of layouts, which will start the game from beginning at any point of time.  
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# How to build and other scripts
 
 ### `npm run build`
 
@@ -29,18 +34,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm test`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
