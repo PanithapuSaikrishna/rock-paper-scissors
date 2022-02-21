@@ -16,11 +16,11 @@ You will also see any lint errors in the console.
 2. On the left pane, there are two sections. One section is Player and other one is for computer.
 3. On player side there are three buttons(Rock, Paper and Scissors) which user can interact and select the desired option.
 4. Once clicked the game will start and display the user selected option and computer will automatically show it's image.
-5. If player/computer wins the point or if there is a tie then it will show the popover with appropriate message.
-6. A point will be allocated to player by filling one out of three blue color circles at the top of user icon and simillarly for Computer.
+5. If player/computer wins the point or if there is any tie then it will show the popover with appropriate message.
+6. A point will be allocated to player by filling one out of three blue color circles at the top of user icon and simillarly for Computer side based on the values.
 7. If player/computer reaches 3 points then game is over and a popup will be displayed with appropriate message.
-8. For computer vs computer option, the game is almost similar to player vs computer but the only difference is it consists of only one button which is play. Upon clicking the button, code will automatically allocate point to computer one or computer two.
-9. There is Restart Game button, on aither sides of layouts, which will start the game from beginning at any point of time.  
+8. For computer vs computer option, the game is almost similar to player vs computer but the only difference is it consists of only one button which is play. Upon clicking the button, code will automatically allocate point to computer one or computer two based on their values.
+9. There is Restart Game button, on aither sides of layouts, which will start the game from beginning at any point of time while playing.  
 
 # How to build and other scripts ?
 
