@@ -1,5 +1,5 @@
 # How install and run the project ?
-Clone the project.
+Clone the project from URl : https://github.com/PanithapuSaikrishna/rock-paper-scissors.
 ### `npm install`
 Run npm install to install all the dependencies of the project.
 
