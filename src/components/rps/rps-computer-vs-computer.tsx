@@ -77,8 +77,8 @@ class ComputerVsComputer extends React.Component<
           return;
         }
         if (
-          this.state.scoreDetails.computerOne.score != 3 &&
-          this.state.scoreDetails.computerTwo.score != 3
+          this.state.scoreDetails.computerOne.score !== 3 &&
+          this.state.scoreDetails.computerTwo.score !== 3
         ) {
           let msg =
             tempComputerOneScore === 1
@@ -119,9 +119,9 @@ class ComputerVsComputer extends React.Component<
       tempComputerTwoScore: 0,
     };
 
-    if (gameRules[computerOneVal].beats === computerTwoVal) {
+    if (gameRules[computerOneVal].beats.includes(computerTwoVal)) {
       scores.tempComputerOneScore = 1;
-    } else if (gameRules[computerTwoVal].beats === computerOneVal) {
+    } else if (gameRules[computerTwoVal].beats.includes(computerOneVal)) {
       scores.tempComputerTwoScore = 1;
     }
     return scores;

@@ -1,14 +1,15 @@
 export const gameRules: any = {
+  // think by adding array of values inside beats
   rock: {
-    beats: "scissors",
+    beats: ["scissors"],
   },
   paper: {
-    beats: "rock",
+    beats: ["rock"],
   },
   scissors: {
-    beats: "paper",
+    beats: ["paper"],
   },
   // pencil: {
-  //   beats: "paper",
+  //   beats: ["paper"],
   // },
 };
