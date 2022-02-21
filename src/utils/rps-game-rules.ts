@@ -8,4 +8,7 @@ export const gameRules: any = {
   scissors: {
     beats: "paper",
   },
+  // pencil: {
+  //   beats: "paper",
+  // },
 };

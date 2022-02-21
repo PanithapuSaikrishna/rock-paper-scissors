@@ -1,29 +1,32 @@
 import * as React from "react";
 import Figure from "react-bootstrap/Figure";
 import user from "../../../assets/user.png";
-import rock from "../../../assets/rock.png";
-import paper from "../../../assets/paper.png";
-import scissor from "../../../assets/scissor.png";
-import { gameRules } from "../../../utils/rps-game-rules";
 import "./circle.css";
 import { ScoreDetails } from "../../../data-models/rps-models";
 
 interface UserProps {
   scoreDetails: ScoreDetails;
-  // scoreDetails: any;
 }
 
 interface UserState {}
 
 class User extends React.Component<UserProps, UserState> {
   getImageName() {
-    //TODO: get dynamic names
-    // const ruleNames = Object.keys(gameRules);
-    return this.props.scoreDetails.user.name === "rock"
-      ? rock
-      : this.props.scoreDetails.user.name === "paper"
-      ? paper
-      : scissor;
+    let imageUrl = "";
+    const { name } = this.props.scoreDetails.user;
+    const images = this.importAll(
+      require.context("../../../assets/gameImages", false, /\.(png)$/)
+    );
+    images.forEach((element: string) => {
+      if (element.search(name) > 0) {
+        imageUrl = element;
+      }
+    });
+    return imageUrl;
+  }
+
+  importAll(r: any) {
+    return r.keys().map(r);
   }
   render() {
     return (

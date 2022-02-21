@@ -1,7 +1,7 @@
 import React from "react";
-import paper from "../../assets/paper.png";
-import rock from "../../assets/rock.png";
-import scissor from "../../assets/scissor.png";
+import paper from "../../assets/gameImages/paper.png";
+import rock from "../../assets/gameImages/rock.png";
+import scissor from "../../assets/gameImages/scissors.png";
 import { TotalCounters } from "../../data-models/rps-models";
 
 const Navbar = ({ name }: TotalCounters) => {

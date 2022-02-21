@@ -1,15 +1,10 @@
 import * as React from "react";
 import Figure from "react-bootstrap/Figure";
 import computer from "../../../assets/computer.png";
-import rock from "../../../assets/rock.png";
-import paper from "../../../assets/paper.png";
-import scissor from "../../../assets/scissor.png";
-import { ScoreDetails } from "../../../data-models/rps-models";
 import "./circle.css";
 
 interface ComputerProps {
   ObjPropName: "computer" | "computerOne" | "computerTwo";
-  // scoreDetails: ScoreDetails;
   scoreDetails: any;
 }
 
@@ -17,10 +12,21 @@ interface ComputerState {}
 
 class Computer extends React.Component<ComputerProps, ComputerState> {
   getImageName() {
-    //TODO: get dynamic names
-    // const ruleNames = Object.keys(gameRules);
+    let imageUrl = "";
     const { name } = this.props.scoreDetails[this.props.ObjPropName];
-    return name === "rock" ? rock : name === "paper" ? paper : scissor;
+    const images = this.importAll(
+      require.context("../../../assets/gameImages", false, /\.(png)$/)
+    );
+    images.forEach((element: string) => {
+      if (element.search(name) > 0) {
+        imageUrl = element;
+      }
+    });
+    return imageUrl;
+  }
+
+  importAll(r: any) {
+    return r.keys().map(r);
   }
   render() {
     const scoreDetails = this.props.scoreDetails[this.props.ObjPropName];
