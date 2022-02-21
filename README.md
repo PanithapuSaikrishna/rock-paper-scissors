@@ -22,7 +22,7 @@ You will also see any lint errors in the console.
 8. For computer vs computer option, the game is almost similar to player vs computer but the only difference is it consists of only one button which is play. Upon clicking the button, code will automatically allocate point to computer one or computer two.
 9. There is Restart Game button, on aither sides of layouts, which will start the game from beginning at any point of time.  
 
-# How to build and other scripts
+# How to build and other scripts ?
 
 ### `npm run build`
 
