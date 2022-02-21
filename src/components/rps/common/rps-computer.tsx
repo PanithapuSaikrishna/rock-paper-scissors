@@ -19,12 +19,8 @@ class Computer extends React.Component<ComputerProps, ComputerState> {
   getImageName() {
     //TODO: get dynamic names
     // const ruleNames = Object.keys(gameRules);
-    const scoreDetails = this.props.scoreDetails[this.props.ObjPropName];
-    return scoreDetails && scoreDetails.name === "rock"
-      ? rock
-      : scoreDetails && scoreDetails.name === "paper"
-      ? paper
-      : scissor;
+    const { name } = this.props.scoreDetails[this.props.ObjPropName];
+    return name === "rock" ? rock : name === "paper" ? paper : scissor;
   }
   render() {
     const scoreDetails = this.props.scoreDetails[this.props.ObjPropName];

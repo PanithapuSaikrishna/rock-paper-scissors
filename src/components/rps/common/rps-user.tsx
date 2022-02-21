@@ -9,8 +9,8 @@ import "./circle.css";
 import { ScoreDetails } from "../../../data-models/rps-models";
 
 interface UserProps {
-  // scoreDetails: ScoreDetails;
-  scoreDetails: any;
+  scoreDetails: ScoreDetails;
+  // scoreDetails: any;
 }
 
 interface UserState {}
@@ -55,7 +55,7 @@ class User extends React.Component<UserProps, UserState> {
         ></div>
         <Figure>
           <Figure.Image width={50} height={50} alt="User" src={user} />
-          <Figure.Caption>User</Figure.Caption>
+          <Figure.Caption>Player</Figure.Caption>
         </Figure>
         <Figure>
           <Figure.Image

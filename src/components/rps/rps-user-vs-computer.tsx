@@ -11,7 +11,7 @@ interface UserVsComputerProps {}
 
 interface UserVsComputerState {
   show: boolean;
-  scoreDetails: any;
+  scoreDetails: ScoreDetails;
 }
 
 class UserVsComputer extends React.Component<
@@ -34,25 +34,28 @@ class UserVsComputer extends React.Component<
 
   toastMessage: string = ToastMsg.USER;
 
-  setShow(val: boolean, msg: string) {
-    this.toastMessage = msg;
+  setShow(val: boolean, msg?: string) {
+    this.toastMessage = msg ? msg : "";
     this.setState({
       show: val,
     });
   }
 
   onClickRPS(userVal: string) {
-    const computerVal = this.getComputerSelection();
-    if (computerVal === userVal) {
-      this.setShow(true, ToastMsg.TIE);
+    if (
+      this.state.scoreDetails.user.score === 3 ||
+      this.state.scoreDetails.computer.score === 3
+    ) {
+      this.resetState();
+      this.setShow(true, ToastMsg.GAME_OVER);
       return;
     }
+    this.setShow(false);
+    const computerVal = this.getComputerSelection();
     const { tempUserScore, tempComputerScore } = this.getScores(
       userVal,
       computerVal
     );
-
-    // const { user, computer } = this.state.scoreDetails;
 
     this.setState(
       {
@@ -62,33 +65,29 @@ class UserVsComputer extends React.Component<
             name: userVal,
           },
           computer: {
-            score:
-              this.state.scoreDetails.computer &&
-              this.state.scoreDetails.computer.score
-                ? this.state.scoreDetails.computer.score + tempComputerScore
-                : 0,
+            score: this.state.scoreDetails.computer.score + tempComputerScore,
             name: computerVal,
           },
         },
       },
       () => {
+        if (computerVal === userVal) {
+          this.setShow(true, ToastMsg.TIE);
+          return;
+        }
         if (
-          this.state.scoreDetails.user &&
           this.state.scoreDetails.user.score != 3 &&
-          this.state.scoreDetails.computer &&
           this.state.scoreDetails.computer.score != 3
         ) {
           let msg = tempUserScore === 1 ? ToastMsg.USER : ToastMsg.COMPUTER;
           this.setShow(true, msg);
         }
         if (
-          (this.state.scoreDetails.user &&
-            this.state.scoreDetails.user.score === 3) ||
-          (this.state.scoreDetails.computer &&
-            this.state.scoreDetails.computer.score === 3)
+          this.state.scoreDetails.user.score === 3 ||
+          this.state.scoreDetails.computer.score === 3
         ) {
           // this.resetState();
-          // Open dialog and disply msg and upon clicking ok reset the game
+          // Open dialog and disply msg and upon clicking ok then reset the game
           this.state.scoreDetails.user &&
           this.state.scoreDetails.user.score === 3
             ? this.setShow(true, ToastMsg.USER_GAME_WON)
@@ -159,6 +158,7 @@ class UserVsComputer extends React.Component<
         </div>
 
         <div>
+          <p>Click below buttons to choose your selection</p>
           {Object.keys(gameRules).map((rule, index) => {
             return (
               <Button
