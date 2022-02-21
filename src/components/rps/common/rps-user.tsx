@@ -3,6 +3,7 @@ import Figure from "react-bootstrap/Figure";
 import user from "../../../assets/user.png";
 import "./circle.css";
 import { ScoreDetails } from "../../../data-models/rps-models";
+import filesLoader from "../../../utils/files-loader";
 
 interface UserProps {
   scoreDetails: ScoreDetails;
@@ -14,9 +15,7 @@ class User extends React.Component<UserProps, UserState> {
   getImageName() {
     let imageUrl = "";
     const { name } = this.props.scoreDetails.user;
-    const images = this.importAll(
-      require.context("../../../assets/gameImages", false, /\.(png)$/)
-    );
+    const images = filesLoader.importFiles();
     images.forEach((element: string) => {
       if (element.search(name) > 0) {
         imageUrl = element;
@@ -25,9 +24,6 @@ class User extends React.Component<UserProps, UserState> {
     return imageUrl;
   }
 
-  importAll(r: any) {
-    return r.keys().map(r);
-  }
   render() {
     return (
       <div>
@@ -65,6 +61,7 @@ class User extends React.Component<UserProps, UserState> {
             width={120}
             height={120}
             alt="Start Game by clicking below buttons"
+            data-testid="image"
             src={this.getImageName()}
           />
         </Figure>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import Figure from "react-bootstrap/Figure";
 import computer from "../../../assets/computer.png";
+import filesLoader from "../../../utils/files-loader";
 import "./circle.css";
 
 interface ComputerProps {
@@ -14,9 +15,7 @@ class Computer extends React.Component<ComputerProps, ComputerState> {
   getImageName() {
     let imageUrl = "";
     const { name } = this.props.scoreDetails[this.props.ObjPropName];
-    const images = this.importAll(
-      require.context("../../../assets/gameImages", false, /\.(png)$/)
-    );
+    const images = filesLoader.importFiles();
     images.forEach((element: string) => {
       if (element.search(name) > 0) {
         imageUrl = element;
@@ -25,9 +24,6 @@ class Computer extends React.Component<ComputerProps, ComputerState> {
     return imageUrl;
   }
 
-  importAll(r: any) {
-    return r.keys().map(r);
-  }
   render() {
     const scoreDetails = this.props.scoreDetails[this.props.ObjPropName];
     return (
@@ -66,6 +62,7 @@ class Computer extends React.Component<ComputerProps, ComputerState> {
             width={120}
             height={120}
             alt="Start Game"
+            data-testid="image"
             src={this.getImageName()}
           />
         </Figure>

@@ -10,7 +10,6 @@ interface RpsHomeProps {}
 interface RpsHomeState {}
 
 class RpsHome extends React.Component<RpsHomeProps, RpsHomeState> {
-  // state = { :  }
   render() {
     return (
       <div>
